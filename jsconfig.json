@@ -1,13 +1,5 @@
 {
-    "compilerOptions": {
-      "baseUrl": ".",
-      "paths": {
-        "*": [
-          "*",
-          "src/*",
-          "node_modules/*"
-        ]
-      }
-    }
+  "compilerOptions": {
+    "baseUrl": "src"
   }
-  
+}
