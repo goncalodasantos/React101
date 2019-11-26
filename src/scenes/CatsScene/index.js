@@ -7,13 +7,14 @@ class CatsScene extends React.Component {
     factList: []
   };
 
-  componentDidMount() {
+  callAPI = () => {
     const self = this;
     axios
       .get("https://dog.ceo/api/breeds/list/all")
       .then(function(response) {
         const data = Object.keys(response.data.message);
-        self.setState({ factList: data });
+        const randomNumber = Math.floor(Math.random() * (data.length - 5));
+        self.setState({ factList: data.slice(randomNumber, randomNumber + 5) });
       })
       .catch(function(error) {
         // handle error
@@ -22,14 +23,22 @@ class CatsScene extends React.Component {
       .finally(function() {
         // always executed
       });
+  };
+
+  componentDidMount() {
+    this.callAPI();
   }
 
   render() {
     const { factList } = this.state;
+
     return (
       <div className="wrapper">
-        {factList.map(el => (
-          <span key={`breed${el}`}>{el}</span>
+        <button onClick={() => this.callAPI()}>
+          Dude, renderize other 5, plz
+        </button>
+        {factList.map((el, index) => (
+          <span key={`breed${index}`}>{el}</span>
         ))}
       </div>
     );
