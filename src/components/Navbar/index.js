@@ -3,7 +3,11 @@ import "./styles.css";
 
 class Navbar extends React.Component {
   render() {
-    return <div className="header">ssdas2</div>;
+    return (
+      <div className="header">
+        <span className="big-boy">ssdass2</span>
+      </div>
+    );
   }
 }
 
