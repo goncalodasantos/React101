@@ -6,7 +6,13 @@ import "./styles.css";
 function App() {
   return (
     <div className="App">
-      <Navbar />
+      <Navbar>
+        {() => (
+          <div className="header">
+            <span className="big-boy">ssdass2</span>
+          </div>
+        )}
+      </Navbar>
       <header className="App-header">
         <p>
           Edit <code>src/App.js</code> and savessx to reload.

@@ -3,11 +3,8 @@ import "./styles.css";
 
 class Navbar extends React.Component {
   render() {
-    return (
-      <div className="header">
-        <span className="big-boy">ssdass2</span>
-      </div>
-    );
+    console.log(this.props);
+    return this.props.children();
   }
 }
 
