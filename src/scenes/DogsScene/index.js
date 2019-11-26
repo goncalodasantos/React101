@@ -2,7 +2,7 @@ import React from "react";
 import axios from "axios";
 import "./styles.css";
 
-class CatsScene extends React.Component {
+class DogsScene extends React.Component {
   state = {
     factList: []
   };
@@ -31,7 +31,7 @@ class CatsScene extends React.Component {
 
   render() {
     const { factList } = this.state;
-
+    console.log("dogs");
     return (
       <div className="wrapper">
         <button onClick={() => this.callAPI()}>
@@ -45,4 +45,4 @@ class CatsScene extends React.Component {
   }
 }
 
-export default CatsScene;
+export default DogsScene;
