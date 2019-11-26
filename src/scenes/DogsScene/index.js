@@ -1,6 +1,8 @@
 import React from "react";
 import axios from "axios";
 import "./styles.css";
+import styled from "styled-components";
+import FavoriteContext from "contexts/favoriteContext";
 
 class DogsScene extends React.Component {
   state = {
@@ -31,18 +33,32 @@ class DogsScene extends React.Component {
 
   render() {
     const { factList } = this.state;
-    console.log("dogs");
+    console.log(this);
+
     return (
       <div className="wrapper">
-        <button onClick={() => this.callAPI()}>
+        <CustomButton onClick={() => this.callAPI()}>
           Dude, renderize other 5, plz
-        </button>
-        {factList.map((el, index) => (
-          <span key={`breed${index}`}>{el}</span>
-        ))}
+        </CustomButton>
+        <FavoriteContext.Consumer>
+          {favoriteBreed =>
+            factList.map((el, index) => (
+              <span
+                key={`breed${index}`}
+                onClick={() => favoriteBreed.action(el)}
+              >
+                {el}
+              </span>
+            ))
+          }
+        </FavoriteContext.Consumer>
       </div>
     );
   }
 }
 
 export default DogsScene;
+
+const CustomButton = styled.button`
+  padding: 25px;
+`;
